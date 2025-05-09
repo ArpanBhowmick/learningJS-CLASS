@@ -222,7 +222,7 @@ let teacher1 = new user ("dean", "abc@gmail.com" , 200)
 
 console.log(student1);
 console.log(student2);
-console.log(teacher1);
+console.log(teacher1); 
 
 
 
