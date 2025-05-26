@@ -128,6 +128,7 @@ function greet(callback , massage) {
     console.log("hello");
     console.log(callback);
     massage();
+    // console.log(massage);
 }
 
 greet("goodbye" , () => {
@@ -136,12 +137,25 @@ greet("goodbye" , () => {
 
 
 
+// in the above code "goodbye" is an argument which goes to callback thats why we use : console.log(callback); but on the other hand :  () => {
+    //console.log("see ou later");
+//});           this is a function which we have to call like this : massage(); or otherwise : somethis like this will print : () => {
+  //console.log("see ou later");
+//}
 
 
 
 
 
+// Concise Body
 
+function greetings(task ) {
+    console.log("hello guys your task for today is : ");
+    const finalTask = task();
+    console.log(finalTask);
+}
+
+greetings(() => "1. you guys will do a 2km run")
 
 
 
