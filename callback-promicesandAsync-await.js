@@ -124,16 +124,16 @@
 // EXPERIMENT
 
 
-function greet(callback , massage) {
-    console.log("hello");
-    console.log(callback);
-    massage();
-    // console.log(massage);
-}
+// function greet(callback , massage) {
+//     console.log("hello");
+//     console.log(callback);
+//     massage();
+//     // console.log(massage);
+// }
 
-greet("goodbye" , () => {
-    console.log("see ou later");
-});
+// greet("goodbye" , () => {
+//     console.log("see ou later");
+// });
 
 
 
@@ -149,13 +149,58 @@ greet("goodbye" , () => {
 
 // Concise Body
 
-function greetings(task ) {
-    console.log("hello guys your task for today is : ");
-    const finalTask = task();
-    console.log(finalTask);
-}
+// function greetings(task ) {
+//     console.log("hello guys your task for today is : ");
+//     // const finalTask = task();
+//     // console.log(finalTask);
+//     console.log(task());
+// }
 
-greetings(() => "1. you guys will do a 2km run")
+// greetings(() => "1. you guys will do a 2km run")
+
+
+
+// PROMISES IN JAVASCRIPT TO COUNTER CALLBACK HELL\\\\\\\\\\\\\\\\\\\
+
+// both are syntax for PROMISE in JS one is made with normal function and another one is with arrow function\\\\\\\\\\\
+
+// const myPromise = new Promise((resolve, reject) => {
+
+// });
+
+
+const promiseOne = new Promise(function(resolve , reject){
+  setTimeout(() => {
+    console.log("async task is compleate");
+    resolve();
+  }, 1000);
+});
+
+promiseOne.then(function(){
+  console.log("promise consume");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
