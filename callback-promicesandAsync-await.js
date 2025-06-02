@@ -169,16 +169,328 @@
 // });
 
 
-const promiseOne = new Promise(function(resolve , reject){
-  setTimeout(() => {
-    console.log("async task is compleate");
-    resolve();
-  }, 1000);
-});
 
-promiseOne.then(function(){
-  console.log("promise consume");
-});
+// BASIC EXAMPLE OF PROMISE :
+
+
+// const promiseOne = new Promise(function(resolve , reject){
+//   setTimeout(() => {
+//     console.log("async task is compleate");
+//     resolve();
+//   }, 1000);
+// });
+
+// promiseOne.then(function(){
+//   console.log("promise consume");
+// });
+
+
+
+
+
+// SHORTER WAY TO WRITE THE SAME THING =====>>>>>>>
+
+
+
+
+// new Promise (function shortPromise(resolve , reject) {
+//   setTimeout(() => {
+//     console.log("This is a shorter way to write promise")
+//     resolve();
+//   }, 1000);
+// }).then(function() {
+//   console.log("promise consume 2nd time");
+// });
+
+
+
+
+
+// WITH OBJECT PARAMETERS IN RESOLVE : 
+
+
+// promiseThree = new Promise (function shortPromise(resolve , reject) {
+//   setTimeout(() => {
+//     resolve({username: "arpan" , email: "abc@gmail.com"});        //most of the times in resolve ojb is passed ,we can pass anything but most of the time obj is use as parameter.
+
+//   }, 1000);
+// });
+
+// promiseThree.then(function(user) {
+//   console.log(user);
+// });
+
+
+
+
+// ANOTHER EXAMPLE BUT THIS TIME A STRING PARAMETER IN RESOLVE(): 
+
+
+// const foodDelivery = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     resolve("🍕 Pizza is here!");  // Step 2: Resolving after 1 second
+//   }, 1000);
+// });
+
+// foodDelivery.then((message) => {
+//   console.log("Delivery received:", message);
+// });
+
+
+
+
+// ANOTHER SAME EXAMPLE WITH OBJECT PARAMETER:
+
+
+// const promiseFOur = new Promise(function(resolve , reject) {
+//   setTimeout(() => {
+//     resolve({name: "Arpan", email: "cj@gmail.com"})
+//   }, 1000);
+// })
+
+// promiseFour.then(function(newUser){
+//   console.log(newUser)
+// })
+
+
+
+
+
+// USE OF RESOLVE() AND REJECT() IN PROMISE:  
+
+
+// const promiseFour = new Promise(function(resolve , reject) {
+//   setTimeout(() => {
+//     let Error = false;
+//     if (!Error) {
+//       resolve({username: "Hexagon" , passsword: "123"})
+//     } else {
+//       reject("ERROR: Something went wrong")
+//     }
+//   }, 1000);
+// })
+
+// Promise consumstion
+ 
+// promiseFour
+// .then((USER) =>{
+//   console.log(USER);
+//   return USER.username;
+// })
+// .then((Myusername) => {
+//   console.log(Myusername);
+// })
+// .catch(function(error) {
+//   console.log(error);
+// })
+// .finally(() =>
+//   console.log("The promise has finished (either resolved or rejected)."));
+
+
+
+
+
+function getData(dataID) {
+  return new Promise((resolve , reject) =>{
+    setTimeout(() => {
+        console.log("data" , dataID);
+        resolve("success");
+        // reject("error")
+    }, 2000);
+  });
+}
+
+// promise chain 
+
+
+// getData(1)
+// .then(() => getData(2)
+// .then(() => getData(3)))            
+
+// we're nesting .then() calls, which is unnecessary and causes confusion in promise chaining. It may work, but it defeats the purpose of a clean chain.in the above code.
+
+// getData(1)
+// .then((res) => getData(2 , ))
+// .then((res) => getData(3 , ));
+
+getData(1)
+.then((res) =>{
+  console.log(res)
+  return getData(2)
+})
+.then((res) =>{
+  console.log(res)
+  return getData(3)
+})
+.then((res) => {
+  console.log(res)
+})
+// .catch(() =>
+//   console.log("no error")
+// );
+
+
+
+// getData(1 ,() => {
+//     getData(2 ,() => {
+//         getData(3);
+//     })
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
