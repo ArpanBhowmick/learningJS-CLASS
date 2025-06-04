@@ -86,6 +86,8 @@
 
 
 
+
+
 // function getData(dataId, getNextData) {
 //     setTimeout(() => {
 //         console.log("data", dataId);
@@ -118,18 +120,35 @@
 
 
 
-function doTask(task) {
-    console.log(`You have to do this task: ${task()}`);    
-}
+// function doTask(task) {
+//     console.log(`You have to do this task: ${task()}`);    
+// }
 
-setTimeout(() => {
-    doTask(() => {
-    console.log("Your task is to do this project")
-})}, 2000);
-
-
+// setTimeout(() => {
+//     doTask(() => {
+//     console.log("Your task is to do this project")
+// })}, 2000);
 
 
+// THE ABOVE CODE IS WRONG . AND THE DEFECTIVE LINE IS THE : 
+// doTask(() => {
+//     console.log("Your task is to do this project")
+// }) IT logs to the console and doesn't return anything, it returns undefined. 
+// SO WE HAVE TO USE CONCISE BODY CODE WITH NO{} AND AUTOMATIC RETURN AND IT ONY WORK WITH ONE EXPRESSION
+
+
+
+// FIXING THE CODE:
+
+
+// function doTask(task) {
+//     console.log(`you guys will be given task : ${task()} `);
+// }
+//  doTask(() => "Your task is to do this project");
+
+// setTimeout(() => {
+//     doTask(() => "Your task is to do this project");
+// }, 2000);
 
 
 
@@ -137,6 +156,24 @@ setTimeout(() => {
 
 
 
+// function greetings(task) {
+//     console.log("hello guys u will be given a task ");
+
+//     // const finalTask = task();
+//     // console.log(finalTask);
+
+//     console.log(task())
+
+// }
+
+// greetings(() => "you guys will do a 2 km run");
+
+
+// console.log("hello")
+
+setTimeout(function() {
+    console.log("hello");
+}, 2000);
 
 
 
