@@ -290,15 +290,15 @@
 
 
 
-function getData(dataID) {
-  return new Promise((resolve , reject) =>{
-    setTimeout(() => {
-        console.log("data" , dataID);
-        resolve("success");
-        // reject("error")
-    }, 2000);
-  });
-}
+// function getData(dataID) {
+//   return new Promise((resolve , reject) =>{
+//     setTimeout(() => {
+//         console.log("data" , dataID);
+//         resolve("success");
+//         // reject("error")
+//     }, 2000);
+//   });
+// }
 
 // promise chain 
 
@@ -313,18 +313,20 @@ function getData(dataID) {
 // .then((res) => getData(2 , ))
 // .then((res) => getData(3 , ));
 
-getData(1)
-.then((res) =>{
-  console.log(res)
-  return getData(2)
-})
-.then((res) =>{
-  console.log(res)
-  return getData(3)
-})
-.then((res) => {
-  console.log(res)
-})
+// correct way to use .then()
+
+// getData(1)
+// .then((res) =>{
+//   console.log(res)
+//   return getData(2)
+// })
+// .then((res) =>{
+//   console.log(res)
+//   return getData(3)
+// })
+// .then((res) => {
+//   console.log(res)
+// })
 // .catch(() =>
 //   console.log("no error")
 // );
@@ -342,14 +344,97 @@ getData(1)
 
 
 
+// NEW EXAMPLE :
+
+
+// function newData(DATAID) {
+//   return new Promise ((resolve , reject) => {
+//     setTimeout(() => {
+//       console.log(DATAID,  ": success")
+//       resolve("resolved succssfully")
+//     }, 1000);
+//   });
+// }
+
+// newData(100)
+// .then((res) =>{
+//   console.log(res);
+//   return newData(101)
+// }).then((res) =>{
+//   console.log(res);
+// })
 
 
 
 
+// USE OF ASYNC-AWAIT : 
 
 
+function walkDog() {
+  return new Promise((resolve , reject) =>{
+    setTimeout(() => {
+      
+      const dogWalked = true;
+
+      if (dogWalked) {
+        resolve("you walked the dog");
+      }
+      else {
+        reject("you DIDN'T walked the dog");
+      }
+    }, 1000);
+  });
+}
+
+function cleanKitchen() {
+  return new Promise((resolve , reject) =>{
+    setTimeout(() => {
+      
+      const kitchenCleaned = true;
+
+      if (kitchenCleaned) {
+        resolve("you have cleaned the kitchen");
+      }
+      else {
+        reject("you DIDN'T cleaned the kitchen");
+      }
+    }, 1000);
+  });
+}
+
+function takeOutTrash() {
+  return new Promise((resolve , reject) =>{
+    setTimeout(() => {
+      
+      const trashTakenOut = true;
+
+      if (trashTakenOut) {
+        resolve("you have taken out trash");
+      }
+      else {
+        reject("you DID'T took out trash");
+      }
+    }, 1000);
+  });
+}
 
 
+//CONSUMING PROMISE 
+
+
+async function doTask(params) {
+
+  const walkDogResult = await walkDog();
+  console.log(walkDogResult);
+
+  const cleanKitchenResult = await cleanKitchen();
+  console.log(cleanKitchenResult);
+
+  const takeOutTrashaResult = await takeOutTrash();
+  console.log(takeOutTrashaResult);
+}
+
+doTask()
 
 
 
