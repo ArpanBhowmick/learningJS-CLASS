@@ -367,74 +367,91 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 // USE OF ASYNC-AWAIT : 
 
 
-function walkDog() {
-  return new Promise((resolve , reject) =>{
-    setTimeout(() => {
+// function walkDog() {
+//   return new Promise((resolve , reject) =>{
+//     setTimeout(() => {
       
-      const dogWalked = true;
+//       const dogWalked = true;
 
-      if (dogWalked) {
-        resolve("you walked the dog");
-      }
-      else {
-        reject("you DIDN'T walked the dog");
-      }
-    }, 1000);
-  });
-}
+//       if (dogWalked) {
+//         resolve("you walked the dog");
+//       }
+//       else {
+//         reject("you DIDN'T walked the dog");
+//       }
+//     }, 1000);
+//   });
+// }
 
-function cleanKitchen() {
-  return new Promise((resolve , reject) =>{
-    setTimeout(() => {
+// function cleanKitchen() {
+//   return new Promise((resolve , reject) =>{
+//     setTimeout(() => {
       
-      const kitchenCleaned = true;
+//       const kitchenCleaned = true;
 
-      if (kitchenCleaned) {
-        resolve("you have cleaned the kitchen");
-      }
-      else {
-        reject("you DIDN'T cleaned the kitchen");
-      }
-    }, 1000);
-  });
-}
+//       if (kitchenCleaned) {
+//         resolve("you have cleaned the kitchen");
+//       }
+//       else {
+//         reject("you DIDN'T cleaned the kitchen");
+//       }
+//     }, 1000);
+//   });
+// }
 
-function takeOutTrash() {
-  return new Promise((resolve , reject) =>{
-    setTimeout(() => {
+// function takeOutTrash() {
+//   return new Promise((resolve , reject) =>{
+//     setTimeout(() => {
       
-      const trashTakenOut = true;
+//       const trashTakenOut = false;
 
-      if (trashTakenOut) {
-        resolve("you have taken out trash");
-      }
-      else {
-        reject("you DID'T took out trash");
-      }
-    }, 1000);
-  });
-}
+//       if (trashTakenOut) {
+//         resolve("you have taken out trash");
+//       }
+//       else {
+//         reject("you DID'T took out trash");
+//       }
+//     }, 1000);
+//   });
+// }
 
 
 //CONSUMING PROMISE 
 
 
-async function doTask(params) {
+// async function doTask() {
 
-  const walkDogResult = await walkDog();
-  console.log(walkDogResult);
+//   try {
 
-  const cleanKitchenResult = await cleanKitchen();
-  console.log(cleanKitchenResult);
+//   const walkDogResult = await walkDog();
+//   console.log(walkDogResult);
 
-  const takeOutTrashaResult = await takeOutTrash();
-  console.log(takeOutTrashaResult);
-}
+//   const cleanKitchenResult = await cleanKitchen();
+//   console.log(cleanKitchenResult);
 
-doTask()
+//   const trashTakenOutresult = await takeOutTrash();
+//   console.log(trashTakenOutresult);
+
+//   } catch (error) {
+//     console.log(error)
+//   }
+  
+// }
+
+// doTask()
 
 
 
@@ -444,6 +461,68 @@ doTask()
 
 
 
+
+
+
+
+
+
+
+
+
+// APPLING ASYNC - AWAIT IN PRIVIOUS CODE :
+
+// function newData(DATAID) {
+//   return new Promise ((resolve , reject) => {
+//     setTimeout(() => {
+//       console.log("Data :", DATAID)
+//       // console.log("success!")
+//       resolve("resolved succssfully")
+//     }, 1000);
+//   });
+// }
+
+// async function allData(params) {
+  
+//   const result1 = await newData(1);
+//   console.log(result1)
+//   const result2 = await newData(2);
+//   console.log(result2)
+//   const result3 = await newData(3);
+//   console.log(result3)
+// }
+
+// allData()
+
+
+//  ALTERNTIVE WAY
+
+// async function allData(params) {
+  
+
+//   console.log( await newData(1))
+//   console.log(await newData(2))
+//   console.log(await newData(3))
+// }
+
+// allData()
+
+
+// newData(1)
+// .then((res) =>{
+//   console.log(res)
+//   return newData(2)
+// })
+// .then((res) =>{
+//   console.log(res)
+//   return newData(3)
+// })
+// .then((res) => {
+//   console.log(res)
+// })
+// .catch(() =>
+//   console.log("no error")
+// );
 
 
 
